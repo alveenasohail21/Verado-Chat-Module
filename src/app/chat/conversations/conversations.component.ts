@@ -14,12 +14,19 @@ export class ConversationsComponent implements OnInit {
   originalConversations: Array<Object>;
   startChat: boolean;
   searchKey: String;
+  selectedConversation: Number;
 
   constructor(public router: Router, public conversationService: ConversationsService) {
     this.conversations = this.conversationService.getConversations();
     this.startChat = conversationService.startChat;
+    this.selectedConversation = 1;
     this.originalConversations = this.conversations;
 
+  }
+
+  selectConversation = (conversation) => {
+    this.router.navigate([`./chat/inbox/${conversation.id}`]);
+    this.selectedConversation = conversation.id;
   }
 
   ngOnInit() {
@@ -31,7 +38,8 @@ export class ConversationsComponent implements OnInit {
       this.conversations = this.originalConversations;
     else
       this.conversations = this.originalConversations.filter((convo: any) => (
-        convo.username.toLowerCase().includes(this.searchKey.toLowerCase())
+        convo.username.toLowerCase().includes(this.searchKey.toLowerCase()) ||
+        convo.description.toLowerCase().includes(this.searchKey.toLowerCase())
       ));
   }
 
