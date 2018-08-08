@@ -22,20 +22,21 @@ export class InboxComponent implements OnInit {
       this.conversationId = params.id;
 
       this.conversations = this.inbox.getUsers(6, this.conversationId);
+      
     });
 
   }
 
   ngOnInit() {
     this.message = this.fb.group({
-      'sender': ['', Validators.required],
+      'me': ['', Validators.required],
       'date': new Date(),
       'time' : new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
     })
   }
 
-  send() {
-    console.log("this.message.value", this.message.value)
+  send(){
+    this.conversations.push(this.message.value);
     this.message.reset();
 
   }
