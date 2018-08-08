@@ -4,7 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConversationsService {
-  startChat:boolean= true;
+  startChat: boolean = true;
+  activeChatId: Number;
+
   conversations: Array<Object> = [
     { id: 1, username: 'Alveena Sohail Ahmed', description: 'alveena.sohail@gmail.com', avatar: 'http://emilcarlsson.se/assets/mikeross.png' },
     { id: 2, username: 'Muhammad Nauman', description: 'muhammadnauman@gmail.com', avatar: 'http://emilcarlsson.se/assets/mikeross.png' },
@@ -16,4 +18,10 @@ export class ConversationsService {
   getConversations = () => {
     return this.conversations;
   }
+
+  setActiveChatId = (id) =>
+    this.activeChatId = id;
+
+  getActiveChatId = (): Number =>
+    this.activeChatId;
 }

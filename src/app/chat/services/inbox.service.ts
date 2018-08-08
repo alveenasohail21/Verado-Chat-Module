@@ -173,7 +173,7 @@ export class InboxService {
         })
       }
     })
-    return {conversations,name}
+    return { conversations, name }
 
 
   }
