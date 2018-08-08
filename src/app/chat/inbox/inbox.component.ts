@@ -1,6 +1,5 @@
-import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-Router
+
 @Component({
   selector: 'app-inbox',
   templateUrl: './inbox.component.html',
@@ -8,12 +7,9 @@ Router
 })
 export class InboxComponent implements OnInit {
 
-  constructor(public route:ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit() {
-    this.route.params.subscribe((param)=>{
-      console.log(param.id);
-    })
   }
 
 }
