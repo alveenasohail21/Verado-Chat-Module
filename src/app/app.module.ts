@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app.routing';
 // import { ConversationsComponent } from './components/conversations/conversations.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ChatModule
+    ChatModule,
+    NgbModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

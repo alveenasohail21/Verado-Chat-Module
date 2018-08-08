@@ -3,9 +3,13 @@ import { ChatModule } from './chat/chat.module';
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-ChatModule
-const routes: Routes = [
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+// ChatModule
+const routes: Routes = [
+    {
+        path: '', loadChildren: 'app/chat/chat.module#ChatModule',
+    },
     {
         path: 'chat', loadChildren: 'app/chat/chat.module#ChatModule',
     },
@@ -19,7 +23,8 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forRoot(routes),
-        ChatModule
+        ChatModule,
+        NgbModule
     ],
     exports: [
         RouterModule
