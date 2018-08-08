@@ -6,12 +6,14 @@ import { ChatComponent } from './chat.component';
 import { RouterModule } from '@angular/router';
 import { ChatRoutes } from './chat.routing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 RouterModule
 @NgModule({
   imports: [
     CommonModule,
     NgbModule,
+    FormsModule,
     RouterModule.forChild(ChatRoutes),
 
   ],

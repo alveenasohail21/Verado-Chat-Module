@@ -30,7 +30,11 @@
 			<label for="">
 				<i class="fa fa-search" aria-hidden="true"></i>
 			</label>
-			<input type="text" placeholder="Search contacts..." />
+			<input 
+			type="text"
+			(keyup) ="search()"
+			[(ngModel)]='searchKey'
+			placeholder="Search contacts..." />
 		</div>
 
 		<div id="contacts">
