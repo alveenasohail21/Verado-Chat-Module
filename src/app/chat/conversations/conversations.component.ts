@@ -11,11 +11,14 @@ import { Router } from '@angular/router';
 })
 export class ConversationsComponent implements OnInit {
   conversations: Array<Object>;
-  startChat:boolean; 
+  originalConversations: Array<Object>;
+  startChat: boolean;
+  searchKey: String;
 
-  constructor(public router:Router,public conversationService: ConversationsService) {
+  constructor(public router: Router, public conversationService: ConversationsService) {
     this.conversations = this.conversationService.getConversations();
     this.startChat = conversationService.startChat;
+    this.originalConversations = this.conversations;
 
   }
 
@@ -23,7 +26,16 @@ export class ConversationsComponent implements OnInit {
 
   }
 
-  toInbox(){
+  search() {
+    if (this.searchKey === '')
+      this.conversations = this.originalConversations;
+    else
+      this.conversations = this.originalConversations.filter((convo: any) => (
+        convo.username.toLowerCase().includes(this.searchKey.toLowerCase())
+      ));
+  }
+
+  toInbox() {
     this.router.navigate(['./chat/inbox/123'])
   }
 
