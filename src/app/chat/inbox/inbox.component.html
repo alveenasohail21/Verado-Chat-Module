@@ -20,6 +20,13 @@
                 <img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
                 <p *ngIf="message.sender !== undefined">{{ message.sender }}</p>
                 <p *ngIf="message.me !== undefined">{{ message.me }}</p>
+                <!-- <br/>
+                <br/> -->
+                <span *ngIf='message.specialOffer'>
+                <p *ngIf="message.amount !== null  ">{{ message.amount }}</p>
+                </span>
+                
+                <!-- <p *ngIf="message.amount !== undefined">{{ message.amount }}</p> -->
             </li>
         </ul>
     </div>

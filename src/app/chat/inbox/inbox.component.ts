@@ -119,7 +119,7 @@ export class InboxComponent implements OnInit {
       me: ['', Validators.required],
       date: new Date(),
       time: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
-      amount:'',
+      amount:null,
       specialOffer: false,
     })
 
