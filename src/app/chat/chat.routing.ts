@@ -13,7 +13,7 @@ export const ChatRoutes: Routes = [
 
             }]
         
-    },
+    }
     // {
     //     path: '',
     //     children: [{
