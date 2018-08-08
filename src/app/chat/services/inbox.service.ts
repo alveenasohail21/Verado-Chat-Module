@@ -23,7 +23,38 @@ export class InboxService {
           ]
         },
         {
+          senderID: 2,
+          name: 'Muhammad Nauman',
+          conversations: [
+            { date: '', me: 'Hi I\'m sender three' },
+            { date: '', sender: 'oye' },
+            { date: '', me: 'han' },
+            { date: '', me: 'kesa he :P' }
+          ]
+        },
+        {
           senderID: 3,
+          name: 'Ahmed Waqas Nasir',
+          conversations: [
+            { date: '', me: 'Hi I\'m sender three' },
+            { date: '', sender: 'oye' },
+            { date: '', me: 'han' },
+            { date: '', me: 'kesa he :P' }
+          ]
+        },
+        {
+          senderID: 4,
+          name: 'Taha Qadri',
+          conversations: [
+            { date: '', me: 'Hi I\'m sender three' },
+            { date: '', sender: 'oye' },
+            { date: '', me: 'han' },
+            { date: '', me: 'kesa he :P' }
+          ]
+        },
+        {
+          senderID: 5,
+          name: 'Muhammad Asif',
           conversations: [
             { date: '', me: 'Hi I\'m sender three' },
             { date: '', sender: 'oye' },
@@ -101,17 +132,19 @@ export class InboxService {
   ];
 
   getUsers(currentUser, conversationID) {
-    let conversation = []
+    let conversations = [];
+    let name = ''
     this.users.map((user: any) => {
       if (user.userID == currentUser) {
         user.chats.map((chat: any) => {
           if (chat.senderID == conversationID) {
-            conversation = chat.conversations
+            conversations = chat.conversations;
+            name = chat.name
           }
         })
       }
     })
-    return conversation
+    return {conversations,name}
 
 
   }
