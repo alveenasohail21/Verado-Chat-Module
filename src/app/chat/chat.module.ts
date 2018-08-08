@@ -7,6 +7,9 @@ import { RouterModule } from '@angular/router';
 import { ChatRoutes } from './chat.routing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 RouterModule
 @NgModule({
@@ -15,7 +18,9 @@ RouterModule
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     RouterModule.forChild(ChatRoutes),
+    
 
   ],
   declarations: [ConversationsComponent, InboxComponent, ChatComponent]

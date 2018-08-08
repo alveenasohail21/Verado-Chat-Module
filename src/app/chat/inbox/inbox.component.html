@@ -3,14 +3,20 @@
         <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
         <p>Harvey Specter</p>
     </div>
+   
     <div class="messages"  #scrollMe [scrollTop]="scrollMe.scrollHeight">
 
         <ul>
-            <div *ngIf="(conversations.length > 0) ? false: true" class="chat-preview">
+            <div [@smooth]="state" *ngIf="(conversations.length > 0) ? false: true" class="chat-preview">
                 <img src='https://npm-assets.fiverrcdn.com/assets/@fiverr/inbox_perseus/magnifier.ca2ae8a.svg'>
                 <p>No conversations</p>
+                <!-- <div [@popOverState]="stateName">
+                    <p>Hello! I'm a helpful message.</p>
+
+            </div> -->
+
             </div>
-            <li *ngFor="let message of conversations" [ngClass]=" message.sender !== undefined ? 'sent': 'replies' ">
+            <li [@smoothchange]="state" *ngFor="let message of conversations" [ngClass]=" message.sender !== undefined ? 'sent': 'replies' ">
                 <!-- {{ message.sender}} -->
                 <img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
                 <p *ngIf="message.sender !== undefined">{{ message.sender }}</p>
@@ -19,6 +25,7 @@
         </ul>
     </div>
     <div class="message-input">
+      
         <!-- <div class="wrap"> -->
             <!-- <input type="text" placeholder="Write your message..." />
             <button class="submit">
