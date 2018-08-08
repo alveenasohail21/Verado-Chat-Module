@@ -11,9 +11,12 @@ import { Router } from '@angular/router';
 })
 export class ConversationsComponent implements OnInit {
   conversations: Array<Object>;
+  startChat:boolean; 
 
-  constructor(public router:Router, conversationService: ConversationsService) {
-    this.conversations = conversationService.getConversations();
+  constructor(public router:Router,public conversationService: ConversationsService) {
+    this.conversations = this.conversationService.getConversations();
+    this.startChat = conversationService.startChat;
+
   }
 
   ngOnInit() {
