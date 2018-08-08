@@ -54,6 +54,7 @@ export class InboxComponent implements OnInit {
   show = false;
   isMounted = false;
   state = 'hide';
+  closeResult;
 
   constructor(public router: Router, private route: ActivatedRoute, private conversationsService: ConversationsService, private inbox: InboxService, private fb: FormBuilder, public modalService: NgbModal) {
     this.conversationsService.startChat = false; // Check whether a chat is selected or not
