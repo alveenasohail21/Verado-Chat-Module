@@ -7,12 +7,18 @@ import { ConversationsComponent } from './conversations/conversations.component'
 export const ChatRoutes: Routes = [
     {
         path: '', component: ChatComponent,
+        // children: [
+        //     {
+        //         path: '', component: InboxComponent
+
+        //     }]
+        
     },
     // {
     //     path: '',
     //     children: [{
-    //         path: 'signUp',
-    //         // component: SignUpComponent
+    //         path: '',
+    //         component: InboxComponent
     //     }]
     // }
 ];
