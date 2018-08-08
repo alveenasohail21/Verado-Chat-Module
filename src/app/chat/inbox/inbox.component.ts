@@ -1,7 +1,7 @@
 import { ConversationsService } from './../services/conversations.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {InboxService} from '../services/inbox.service'
+import { InboxService } from '../services/inbox.service'
 import { FormGroup, FormControl, FormGroupDirective, NgForm, Validators, FormBuilder } from '@angular/forms';
 
 Router
@@ -13,11 +13,11 @@ Router
 export class InboxComponent implements OnInit {
   conversationId: Number;
   message: FormGroup;
+  conversations: Array<Object>;
 
 
-
-  constructor(public router: Router, private route: ActivatedRoute,private  conversationsService: ConversationsService ,private inbox :InboxService, ,private fb: FormBuilder,) {
- this.conversationsService.startChat = false;
+  constructor(public router: Router, private route: ActivatedRoute, private conversationsService: ConversationsService, private inbox: InboxService, private fb: FormBuilder, ) {
+    this.conversationsService.startChat = false;
     this.route.params.subscribe((params) => {
       this.conversationId = params.id;
 
@@ -33,10 +33,10 @@ export class InboxComponent implements OnInit {
     })
   }
 
-  send(){
-    console.log("this.message.value",this.message.value)
+  send() {
+    console.log("this.message.value", this.message.value)
     this.message.reset();
-    
+
   }
 
 }
