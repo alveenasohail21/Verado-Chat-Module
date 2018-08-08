@@ -17,7 +17,8 @@ export class InboxComponent implements OnInit {
   name  = '';
 
 
-  constructor(public router: Router, private route: ActivatedRoute, private conversationsService: ConversationsService, private inbox: InboxService, private fb: FormBuilder, ) {
+
+  constructor(public router: Router, private route: ActivatedRoute, private conversationsService: ConversationsService, private inbox: InboxService,  private fb: FormBuilder, ) {
     this.conversationsService.startChat = false;
     this.route.params.subscribe((params) => {
       this.conversationId = params.id;
@@ -25,22 +26,20 @@ export class InboxComponent implements OnInit {
       obj = this.inbox.getUsers(6, this.conversationId);
       this.name = obj.name
       this.conversations = obj.conversations
-
-      console.log(this.name ,this.conversations)
     });
 
   }
 
   ngOnInit() {
     this.message = this.fb.group({
-      'sender': ['', Validators.required],
+      'me': ['', Validators.required],
       'date': new Date(),
       'time' : new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
     })
   }
 
   send() {
-    console.log("this.message.value", this.message.value)
+    this.conversations.push(this.message.value);
     this.message.reset();
 
   }

@@ -68,8 +68,8 @@
     display: inline-block;
     clear: both;
     float: left;
-    margin: 15px 15px 5px 15px;
-    width: calc(100% - 25px);
+    margin: 15px 15px 5px 0px;
+    width: calc(98% - 25px);
     font-size: 0.9em;
   }
    .content .messages ul li:nth-last-child(1) {
@@ -105,7 +105,7 @@
   }
   @media screen and (min-width: 735px) {
      .content .messages ul li p {
-      max-width: 300px;
+      max-width: 100%;
     }
   }
    .content .message-input {

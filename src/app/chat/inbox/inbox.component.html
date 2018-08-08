@@ -3,7 +3,7 @@
         <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
         <p>{{name}}</p>
     </div>
-    <div class="messages">
+    <div class="messages"  #scrollMe [scrollTop]="scrollMe.scrollHeight">
 
         <ul>
             <div *ngIf="(conversations.length > 0) ? false: true" class="chat-preview">
@@ -26,7 +26,7 @@
             </button> -->
 
             <form [formGroup]="message"  class="wrap">
-                <input type="text" name="first_name" value="" placeholder="Write your message..."  formControlName="sender"/>
+                <input type="text" name="first_name" value="" placeholder="Write your message..."  formControlName="me"/>
                 <!-- <input type="text" name="last_name" value="" placeholder="Last Name" class="newsForm" formControlName="last_name"/> -->
                 <!-- <input type="email" name="email" value="" placeholder="Email" class="newsForm" formControlName="email"/> -->
                 <button class="submit" type="submit" [disabled]="!message.valid" (click)="send()">
