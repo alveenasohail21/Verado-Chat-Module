@@ -8,8 +8,8 @@ import { AppRoutingModule } from './app.routing';
 // import { InboxComponent } from './components/inbox/inbox.component';
 // import { ConversationsComponent } from './components/conversations/conversations.component';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -25,7 +25,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     ChatModule,
     NgbModule
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

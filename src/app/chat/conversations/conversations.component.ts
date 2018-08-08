@@ -1,4 +1,6 @@
+import { ConversationsService } from './../services/conversations.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-conversations',
@@ -6,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./conversations.component.css']
 })
 export class ConversationsComponent implements OnInit {
-  hero: String = 'My name is Alveena Sohail Ahmed'
-  constructor() {
-    
-   }
+  conversations: Array<Object>;
+
+  constructor(conversationService: ConversationsService) {
+    this.conversations = conversationService.getConversations();
+  }
 
   ngOnInit() {
+
   }
 
 }
