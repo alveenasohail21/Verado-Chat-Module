@@ -21,7 +21,7 @@ export class InboxComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.conversationId = params.id;
 
-      console.log(this.inbox.getUsers(6,this.conversationId))
+      this.conversations = this.inbox.getUsers(6, this.conversationId);
     });
 
   }
