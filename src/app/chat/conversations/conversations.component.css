@@ -517,3 +517,15 @@ body {
     display: flex;
     align-items:center;
   }
+  .chatPreview{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #555555;
+    height: 100%;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  }
+  
