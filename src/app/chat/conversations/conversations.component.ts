@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./conversations.component.css']
 })
 export class ConversationsComponent implements OnInit {
-
-  constructor() { }
+  hero: String = 'My name is Alveena Sohail Ahmed'
+  constructor() {
+    
+   }
 
   ngOnInit() {
   }
