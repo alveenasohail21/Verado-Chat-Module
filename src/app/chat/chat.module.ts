@@ -20,8 +20,6 @@ RouterModule
     ReactiveFormsModule,
     BrowserAnimationsModule,
     RouterModule.forChild(ChatRoutes),
-    
-
   ],
   declarations: [ConversationsComponent, InboxComponent, ChatComponent]
 })
