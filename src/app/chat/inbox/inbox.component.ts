@@ -25,6 +25,7 @@ export class InboxComponent implements OnInit {
   message: FormGroup;
   conversations: Array<Object>;
   name = '';
+  avatar = '';
 
   constructor(public router: Router, private route: ActivatedRoute, private conversationsService: ConversationsService, private inbox: InboxService, private fb: FormBuilder, ) {
     this.conversationsService.startChat = false; // Check whether a chat is selected or not
@@ -39,6 +40,7 @@ export class InboxComponent implements OnInit {
       obj = this.inbox.getUsers(6, this.conversationId);
       this.name = obj.name
       this.conversations = obj.conversations
+      this.avatar = obj.avatar;
     });
 
   }

@@ -1,6 +1,6 @@
 <div class="content">
     <div class="contact-profile">
-        <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+        <img [src]="avatar" alt="" />
         <!-- Render the name of the user -->
         <p>{{name}}</p>
     </div>
@@ -15,7 +15,7 @@
 
             <!-- Rendering Messages -->
             <li *ngFor="let message of conversations" [ngClass]=" message.sender !== undefined ? 'sent': 'replies' ">
-                <img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
+                <img [src]="avatar" alt="" />
                 <p *ngIf="message.sender !== undefined">{{ message.sender }}</p>
                 <p *ngIf="message.me !== undefined">{{ message.me }}</p>
             </li>
