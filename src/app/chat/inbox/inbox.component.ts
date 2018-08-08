@@ -9,10 +9,10 @@ Router
 })
 export class InboxComponent implements OnInit {
 
-  constructor(public router:Router) { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
   }
-
-  
+ 
 }
+  
