@@ -30,13 +30,14 @@ export class InboxComponent implements OnInit {
     this.message = this.fb.group({
       'sender': ['', Validators.required],
       'date': new Date(),
+      'time' : new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
     })
   }
 
   send(){
     console.log("this.message.value",this.message.value)
     this.message.reset();
-    
+
   }
 
 }
