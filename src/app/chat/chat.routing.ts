@@ -6,7 +6,7 @@ import { ConversationsComponent } from './conversations/conversations.component'
 
 export const ChatRoutes: Routes = [
     {
-        path: '', component: ChatComponent,
+        path: '', component: ChatComponent
         // children: [
         //     {
         //         path: '', component: InboxComponent
