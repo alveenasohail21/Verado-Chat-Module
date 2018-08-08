@@ -14,6 +14,9 @@ import { FormGroup, FormControl, FormGroupDirective, NgForm, Validators, FormBui
 // } from '@angular/animations';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
+
 
 Router
 @Component({
@@ -78,6 +81,9 @@ export class InboxComponent implements OnInit {
   state = 'hide';
   name:string ;
 
+  closeResult: string;
+
+
 
 
 
@@ -86,6 +92,7 @@ export class InboxComponent implements OnInit {
     private conversationsService: ConversationsService,
     private inbox: InboxService,
     private fb: FormBuilder,
+    private modalService: NgbModal
   ) {
     this.conversationsService.startChat = false;
     this.route.params.subscribe((params) => {
@@ -109,17 +116,54 @@ export class InboxComponent implements OnInit {
 
   ngOnInit() {
     this.message = this.fb.group({
-      'me': ['', Validators.required],
-      'date': new Date(),
-      'time': new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+      me: ['', Validators.required],
+      date: new Date(),
+      time: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+      amount:'',
+      specialOffer: false,
     })
+
+    
   }
 
   send() {
     this.conversations.push(this.message.value);
     this.message.reset();
 
+  
   }
+  sendSpecialOffer(){
+    if(this.message.value.me){
+      this.message.patchValue({
+        specialOffer : true
+      });
+      console.log(this.message.value)
+      this.conversations.push(this.message.value);
+  
+      this.message.reset();  
+    }
+    
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+
 
 
 
