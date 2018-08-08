@@ -14,14 +14,19 @@ export class InboxComponent implements OnInit {
   conversationId: Number;
   message: FormGroup;
   conversations: Array<Object>;
+  name  = '';
 
 
   constructor(public router: Router, private route: ActivatedRoute, private conversationsService: ConversationsService, private inbox: InboxService, private fb: FormBuilder, ) {
     this.conversationsService.startChat = false;
     this.route.params.subscribe((params) => {
       this.conversationId = params.id;
+      let obj :any
+      obj = this.inbox.getUsers(6, this.conversationId);
+      this.name = obj.name
+      this.conversations = obj.conversations
 
-      this.conversations = this.inbox.getUsers(6, this.conversationId);
+      console.log(this.name ,this.conversations)
     });
 
   }
