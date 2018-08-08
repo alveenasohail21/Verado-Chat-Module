@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 Router
 @Component({
@@ -8,11 +8,16 @@ Router
   styleUrls: ['./inbox.component.css']
 })
 export class InboxComponent implements OnInit {
+  conversationId: Number;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, private route: ActivatedRoute) {
+    this.route.params.subscribe((params) => {
+      this.conversationId = params.id;
+    });
+
+  }
 
   ngOnInit() {
   }
- 
+
 }
-  
