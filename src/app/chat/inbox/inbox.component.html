@@ -1,17 +1,20 @@
 <div class="content">
     <div class="contact-profile">
         <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+        <!-- Render the name of the user -->
         <p>{{name}}</p>
     </div>
     <div class="messages" #scrollMe [scrollTop]="scrollMe.scrollHeight">
 
         <ul>
+            <!-- When there's no conversations -->
             <div *ngIf="(conversations.length > 0) ? false: true" class="chat-preview">
                 <img src='https://npm-assets.fiverrcdn.com/assets/@fiverr/inbox_perseus/magnifier.ca2ae8a.svg'>
                 <p>No conversations</p>
             </div>
+
+            <!-- Rendering Messages -->
             <li *ngFor="let message of conversations" [ngClass]=" message.sender !== undefined ? 'sent': 'replies' ">
-                <!-- {{ message.sender}} -->
                 <img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
                 <p *ngIf="message.sender !== undefined">{{ message.sender }}</p>
                 <p *ngIf="message.me !== undefined">{{ message.me }}</p>
@@ -19,16 +22,10 @@
         </ul>
     </div>
     <div class="message-input">
-        <!-- <div class="wrap"> -->
-        <!-- <input type="text" placeholder="Write your message..." />
-            <button class="submit">
-                <i class="fa fa-paper-plane" aria-hidden="true"></i>
-            </button> -->
 
+        <!-- Form for getting data for special offer -->
         <form [formGroup]="message" class="wrap">
             <input type="text" name="first_name" value="" placeholder="Write your message..." formControlName="me" />
-            <!-- <input type="text" name="last_name" value="" placeholder="Last Name" class="newsForm" formControlName="last_name"/> -->
-            <!-- <input type="email" name="email" value="" placeholder="Email" class="newsForm" formControlName="email"/> -->
             <button class="submit plus" type="submit">
                 <i class="fa fa-plus" aria-hidden="true"></i>
             </button>
@@ -36,10 +33,5 @@
                 <i class="fa fa-paper-plane" aria-hidden="true"></i>
             </button>
         </form>
-
-
-
-
-        <!-- </div> -->
     </div>
 </div>

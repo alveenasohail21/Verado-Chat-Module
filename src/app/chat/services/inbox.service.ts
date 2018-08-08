@@ -5,8 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class InboxService {
 
-  constructor() { }
-
+  /**
+   * Mock conversaions and user data
+   */
   users: Array<Object> = [
     {
       userID: 6,
@@ -138,29 +139,12 @@ export class InboxService {
         },
       ]
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   ];
 
-  getUsers(currentUser, conversationID) {
+  /**
+   * Returning conversations accordng to the given user and conversation id
+   */
+  getUsers = (currentUser, conversationID) => {
     let conversations = [];
     let name = ''
     this.users.map((user: any) => {
@@ -174,7 +158,5 @@ export class InboxService {
       }
     })
     return { conversations, name }
-
-
   }
 }
