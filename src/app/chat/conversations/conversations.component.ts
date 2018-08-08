@@ -1,5 +1,5 @@
 import { ConversationsService } from './../services/conversations.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -19,7 +19,7 @@ export class ConversationsComponent implements OnInit {
   constructor(public router: Router, public conversationService: ConversationsService) {
     this.conversations = this.conversationService.getConversations();
     this.startChat = conversationService.startChat;
-    this.selectedConversation = 1;
+    // this.selectedConversation = 1;
     this.originalConversations = this.conversations;
 
   }
@@ -30,8 +30,11 @@ export class ConversationsComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.selectedConversation = this.conversationService.getActiveChatId();
+    console.log(this.selectedConversation)
   }
+
+
 
   search() {
     if (this.searchKey === '')
@@ -42,6 +45,7 @@ export class ConversationsComponent implements OnInit {
         convo.description.toLowerCase().includes(this.searchKey.toLowerCase())
       ));
   }
+
 
   toInbox() {
     this.router.navigate(['./chat/inbox/123'])

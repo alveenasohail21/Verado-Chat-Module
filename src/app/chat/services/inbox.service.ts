@@ -20,7 +20,13 @@ export class InboxService {
             { date: '', me: 'HI' },
             { date: '', me: 'Hi I\'m sender two' },
             { date: '', sender: 'Hello' },
-            { date: '', me: 'how are you' }
+            { date: '', sender: 'Hello' },
+            { date: '', sender: 'how are you' },
+            { date: '', me: 'Hi I\'m sender two' },
+            { date: '', sender: 'Hi I\'m sender two' },
+            { date: '', me: 'Hi I\'m sender two' },
+            { date: '', sender: 'Hi I\'m sender two' },
+            { date: '', me: 'Hi I\'m sender two' },
           ]
         },
         {
@@ -30,37 +36,58 @@ export class InboxService {
             { date: '', me: 'Hi I\'m sender three' },
             { date: '', sender: 'oye' },
             { date: '', me: 'han' },
-            { date: '', me: 'kesa he :P' }
+            { date: '', sender: 'han' },
+            { date: '', me: 'kesa he :P' },
+            { date: '', sender: 'kesa he :P' },
+            { date: '', me: 'kesa he :P' },
+            { date: '', sender: 'kesa he :P' }
           ]
         },
         {
-          senderID: 2,
+          senderID: 3,
           name: 'Ahmed Waqas Nasir',
           conversations: [
-            { date: '', me: 'Hi I\'m sender three' },
+            { date: '', sender: 'Hi I\'m sender three' },
+            { date: '', me: 'Fine' },
+            { date: '', sender: 'Hi I\'m sender three' },
+            { date: '', me: 'Hi I\'m sender three,How are you' },
             { date: '', sender: 'oye' },
             { date: '', me: 'han' },
-            { date: '', me: 'kesa he :P' }
+            { date: '', sender: ':P' }
           ]
         },
         {
-          senderID: 2,
+          senderID: 4,
           name: 'Taha Qadri',
           conversations: [
             { date: '', me: 'Hi I\'m sender three' },
             { date: '', sender: 'oye' },
             { date: '', me: 'han' },
-            { date: '', me: 'kesa he :P' }
+            { date: '', me: 'kesa he :P' },
+            { date: '', sender: 'Hi I\'m sender three' },
+            { date: '', me: 'Fine' },
+            { date: '', sender: 'Hi I\'m sender three' },
+            { date: '', me: 'Hi I\'m sender three,How are you' },
+            { date: '', sender: 'oye' },
+            { date: '', me: 'han' },
+            { date: '', sender: ':P' }
+
           ]
         },
         {
-          senderID: 2,
+          senderID: 5,
           name: 'Muhammad Asif',
           conversations: [
             { date: '', me: 'Hi I\'m sender three' },
             { date: '', sender: 'oye' },
             { date: '', me: 'han' },
-            { date: '', me: 'kesa he :P' }
+            { date: '', me: 'kesa he :P' },
+            { date: '', me: 'Hi I\'m sender three' },
+            { date: '', sender: 'oye' },
+            { date: '', me: 'han' },
+            { date: '', me: 'kesa he :P' },
+            { date: '', sender: 'Hi I\'m sender three' },
+            { date: '', me: 'Fine' },
           ]
         },
       ]
@@ -134,17 +161,19 @@ export class InboxService {
   ];
 
   getUsers(currentUser, conversationID) {
-    let conversation = []
+    let conversations = [];
+    let name = ''
     this.users.map((user: any) => {
       if (user.userID == currentUser) {
         user.chats.map((chat: any) => {
           if (chat.senderID == conversationID) {
-            conversation = chat.conversations
+            conversations = chat.conversations;
+            name = chat.name
           }
         })
       }
     })
-    return conversation
+    return { conversations, name }
 
 
   }

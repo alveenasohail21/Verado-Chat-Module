@@ -89,11 +89,11 @@ export class InboxComponent implements OnInit {
     this.conversationsService.startChat = false;
     this.route.params.subscribe((params) => {
       this.conversationId = params.id;
-
-      this.conversations = this.inbox.getUsers(6, this.conversationId);
-      this.show = this.conversations.length > 0 ? false : true;
-      console.log(this.show)
-
+      this.conversationsService.setActiveChatId(this.conversationId);
+      let obj :any
+      obj = this.inbox.getUsers(6, this.conversationId);
+      this.name = obj.name
+      this.conversations = obj.conversations
     });
 
 
