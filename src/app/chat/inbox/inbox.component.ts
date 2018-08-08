@@ -22,6 +22,7 @@ export class InboxComponent implements OnInit {
     this.conversationsService.startChat = false;
     this.route.params.subscribe((params) => {
       this.conversationId = params.id;
+      this.conversationsService.setActiveChatId(this.conversationId);
       let obj :any
       obj = this.inbox.getUsers(6, this.conversationId);
       this.name = obj.name
