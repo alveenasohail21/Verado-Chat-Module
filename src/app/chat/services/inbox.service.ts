@@ -14,7 +14,8 @@ export class InboxService {
       username: 'asif123',
       chats: [
         {
-          senderID: 2,
+          senderID: 1,
+          name: 'Alveena Sohail Ahmed',
           conversations: [
             { date: '', me: 'HI' },
             { date: '', me: 'Hi I\'m sender two' },
@@ -23,7 +24,38 @@ export class InboxService {
           ]
         },
         {
-          senderID: 3,
+          senderID: 2,
+          name: 'Muhammad Nauman',
+          conversations: [
+            { date: '', me: 'Hi I\'m sender three' },
+            { date: '', sender: 'oye' },
+            { date: '', me: 'han' },
+            { date: '', me: 'kesa he :P' }
+          ]
+        },
+        {
+          senderID: 2,
+          name: 'Ahmed Waqas Nasir',
+          conversations: [
+            { date: '', me: 'Hi I\'m sender three' },
+            { date: '', sender: 'oye' },
+            { date: '', me: 'han' },
+            { date: '', me: 'kesa he :P' }
+          ]
+        },
+        {
+          senderID: 2,
+          name: 'Taha Qadri',
+          conversations: [
+            { date: '', me: 'Hi I\'m sender three' },
+            { date: '', sender: 'oye' },
+            { date: '', me: 'han' },
+            { date: '', me: 'kesa he :P' }
+          ]
+        },
+        {
+          senderID: 2,
+          name: 'Muhammad Asif',
           conversations: [
             { date: '', me: 'Hi I\'m sender three' },
             { date: '', sender: 'oye' },
@@ -39,6 +71,7 @@ export class InboxService {
       chats: [
         {
           senderID: 1,
+          name: 'Ahmed Waqas Nasir',
           conversations: [
             { date: '', me: 'Hi I\'m sender one' },
             { date: '', me: 'HI' },
