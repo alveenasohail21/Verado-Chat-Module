@@ -11,7 +11,7 @@ Router
 export class InboxComponent implements OnInit {
   conversationId: Number;
 
-  constructor(public router: Router, private route: ActivatedRoute) {
+  constructor(public router: Router, private route: ActivatedRoute,private  conversationsService: ConversationsService) {
  this.conversationsService.startChat = false;
     this.route.params.subscribe((params) => {
       this.conversationId = params.id;
