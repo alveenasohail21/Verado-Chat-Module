@@ -15,7 +15,7 @@ RouterModule
 @NgModule({
   imports: [
     CommonModule,
-    NgbModule,
+    NgbModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
