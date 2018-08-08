@@ -1,5 +1,7 @@
 import { ConversationsService } from './../services/conversations.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -10,12 +12,16 @@ import { Component, OnInit } from '@angular/core';
 export class ConversationsComponent implements OnInit {
   conversations: Array<Object>;
 
-  constructor(conversationService: ConversationsService) {
+  constructor(public router:Router, conversationService: ConversationsService) {
     this.conversations = conversationService.getConversations();
   }
 
   ngOnInit() {
 
+  }
+
+  toInbox(){
+    this.router.navigate(['./chat/inbox/123'])
   }
 
 }
