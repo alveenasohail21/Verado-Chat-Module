@@ -3,7 +3,7 @@
         <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
         <p>{{name}}</p>
     </div>
-    <div class="messages"  #scrollMe [scrollTop]="scrollMe.scrollHeight">
+    <div class="messages" #scrollMe [scrollTop]="scrollMe.scrollHeight">
 
         <ul>
             <div *ngIf="(conversations.length > 0) ? false: true" class="chat-preview">
@@ -20,19 +20,22 @@
     </div>
     <div class="message-input">
         <!-- <div class="wrap"> -->
-            <!-- <input type="text" placeholder="Write your message..." />
+        <!-- <input type="text" placeholder="Write your message..." />
             <button class="submit">
                 <i class="fa fa-paper-plane" aria-hidden="true"></i>
             </button> -->
 
-            <form [formGroup]="message"  class="wrap">
-                <input type="text" name="first_name" value="" placeholder="Write your message..."  formControlName="me"/>
-                <!-- <input type="text" name="last_name" value="" placeholder="Last Name" class="newsForm" formControlName="last_name"/> -->
-                <!-- <input type="email" name="email" value="" placeholder="Email" class="newsForm" formControlName="email"/> -->
-                <button class="submit" type="submit" [disabled]="!message.valid" (click)="send()">
+        <form [formGroup]="message" class="wrap">
+            <input type="text" name="first_name" value="" placeholder="Write your message..." formControlName="me" />
+            <!-- <input type="text" name="last_name" value="" placeholder="Last Name" class="newsForm" formControlName="last_name"/> -->
+            <!-- <input type="email" name="email" value="" placeholder="Email" class="newsForm" formControlName="email"/> -->
+            <button class="submit plus" type="submit">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+            <button class="submit" type="submit" [disabled]="!message.valid" (click)="send()">
                 <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                </button>
-              </form>
+            </button>
+        </form>
 
 
 
