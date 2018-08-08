@@ -6,12 +6,12 @@ import { ConversationsComponent } from './conversations/conversations.component'
 
 export const ChatRoutes: Routes = [
     {
-        path: '', component: ChatComponent,
-        // children: [
-        //     {
-        //         path: '', component: InboxComponent
+        path: 'chat', component: ChatComponent,
+        children: [
+            {
+                path: 'inbox/:id', component: InboxComponent
 
-        //     }]
+            }]
         
     },
     // {

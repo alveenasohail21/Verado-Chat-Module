@@ -8,10 +8,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 // ChatModule
 const routes: Routes = [
     {
-        path: '', loadChildren: 'app/chat/chat.module#ChatModule',
+        path: '',
+        redirectTo: 'chat',
+        pathMatch: 'full',
     },
     {
-        path: 'chat', loadChildren: 'app/chat/chat.module#ChatModule',
+        path: 'chat', loadChildren: 'app/chat/chat.module#ChatModule'
     },
     // { path: '', component: ChatComponent },
     // { path: 'chat', component: ChatComponent },

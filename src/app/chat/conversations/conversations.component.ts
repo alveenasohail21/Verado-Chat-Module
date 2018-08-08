@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-conversations',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConversationsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router:Router) { }
 
   ngOnInit() {
+  }
+
+  toInbox(){
+    this.router.navigate(['./chat/inbox/123'])
   }
 
 }
