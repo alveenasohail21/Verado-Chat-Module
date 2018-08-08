@@ -35,7 +35,7 @@
 
 	<div id="contacts">
 		<ul>
-			<li *ngFor="let conversation of conversations" class="contact" [ngClass]="{'active': conversation.id == selectedConversation}">
+			<li (click)="this.conversationService.startChat=false" *ngFor="let conversation of conversations" class="contact" [ngClass]="{'active': conversation.id == selectedConversation}"  class="contact" >
 				<div [id]="conversation.id" class="wrap" (click)="selectConversation(conversation)"  >
 					<span class="contact-status online"></span>
 					<img [src]=conversation.avatar alt="" />
@@ -48,7 +48,7 @@
 		</ul>
 	</div>
 </div>
-<div *ngIf='startChat' class="chatPreview">
+<div *ngIf='this.conversationService.startChat' class="chatPreview">
 	<img src='https://npm-assets.fiverrcdn.com/assets/@fiverr/inbox_perseus/magnifier.ca2ae8a.svg'>
 	<p> Selection Any Conversations</p>
 
