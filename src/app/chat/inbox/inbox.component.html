@@ -1,42 +1,31 @@
 <div class="content">
     <div class="contact-profile">
-        <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+        <img [src]="avatar" alt="" />
+        <!-- Render the name of the user -->
         <p>{{name}}</p>
     </div>
     <div class="messages" #scrollMe [scrollTop]="scrollMe.scrollHeight">
 
         <ul>
-            <div [@smooth]="state" *ngIf="(conversations.length > 0) ? false: true" class="chat-preview">
+            <div [@smooth]="state" *ngIf="(conversations.length > 0) ? false : true" class="chat-preview">
                 <img src='https://npm-assets.fiverrcdn.com/assets/@fiverr/inbox_perseus/magnifier.ca2ae8a.svg'>
                 <p>No conversations</p>
-                <!-- <div [@popOverState]="stateName">
-                    <p>Hello! I'm a helpful message.</p>
-
-            </div> -->
-
             </div>
+
+            <!-- Rendering Messages -->
             <li [@smoothchange]="state" *ngFor="let message of conversations" [ngClass]=" message.sender !== undefined ? 'sent': 'replies' ">
-                <!-- {{ message.sender}} -->
-                <img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
+                <img [src]="avatar" alt="" />
                 <p *ngIf="message.sender !== undefined">{{ message.sender }}</p>
                 <p *ngIf="message.me !== undefined">{{ message.me }}</p>
                 <!-- <br/>
                 <br/> -->
                 <span *ngIf='message.specialOffer'>
-                <p *ngIf="message.amount !== null  ">{{ message.amount }}</p>
+                    <p *ngIf="message.amount !== null  ">{{ message.amount }}</p>
                 </span>
-                
-                <!-- <p *ngIf="message.amount !== undefined">{{ message.amount }}</p> -->
             </li>
         </ul>
     </div>
     <div class="message-input">
-
-        <!-- <div class="wrap"> -->
-        <!-- <input type="text" placeholder="Write your message..." />
-            <button class="submit">
-                <i class="fa fa-paper-plane" aria-hidden="true"></i>
-            </button> -->
         <ng-template #content let-c="close" let-d="dismiss">
             <div class="modal-header">
                 <h4 class="modal-title" id="modal-basic-title">Special Offer</h4>
@@ -54,32 +43,17 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-dark" [disabled]="!message.valid"  (click)="c('Save click')" (click)='sendSpecialOffer()'>Save</button>
+                <button type="button" class="btn btn-outline-dark" [disabled]="!message.valid" (click)="c('Save click')" (click)='sendSpecialOffer()'>Save</button>
             </div>
         </ng-template>
-
-        <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
-
-        <hr>
-
-        <!-- <pre>{{closeResult}}</pre> -->
-
         <form [formGroup]="message" class="wrap">
             <input type="text" name="first_name" value="" placeholder="Write your message..." formControlName="me" />
-            <!-- <input type="text" name="last_name" value="" placeholder="Last Name" class="newsForm" formControlName="last_name"/> -->
-            <!-- <input type="email" name="email" value="" placeholder="Email" class="newsForm" formControlName="email"/> -->
-            
             <button class="submit" type="submit" [disabled]="!message.valid" (click)="send()">
                 <i class="fa fa-paper-plane" aria-hidden="true"></i>
             </button>
-            <button class="submit plus" type="submit"  (click)="open(content)">
-                    <i class="fa fa-plus" aria-hidden="true"></i>
-                </button>
+            <button class="submit plus" type="submit" (click)="open(content)">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
         </form>
-
-
-
-
-        <!-- </div> -->
     </div>
 </div>

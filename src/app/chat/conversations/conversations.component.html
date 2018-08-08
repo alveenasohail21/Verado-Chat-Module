@@ -1,29 +1,9 @@
 <div id="sidepanel">
 	<div id="profile">
 		<div class="wrap">
-			<img id="profile-img" src="http://emilcarlsson.se/assets/mikeross.png" class="online" alt="" />
-			<p>Mike Ross</p>
-			<i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
-			<div id="status-options">
-				<ul>
-					<li id="status-online" class="active">
-						<span class="status-circle"></span>
-						<p>Online</p>
-					</li>
-					<li id="status-away">
-						<span class="status-circle"></span>
-						<p>Away</p>
-					</li>
-					<li id="status-busy">
-						<span class="status-circle"></span>
-						<p>Busy</p>
-					</li>
-					<li id="status-offline">
-						<span class="status-circle"></span>
-						<p>Offline</p>
-					</li>
-				</ul>
-			</div>
+			<img id="profile-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYSItZgJYGhLiceCc4CuuAGUgIrr72JvyY4I8ljkmVGMdCeaZd" class="online" alt="" />
+			<!-- Name of the current user -->
+			<p>Talha Yasin</p>
 		</div>
 	</div>
 	<div id="search">
@@ -35,8 +15,9 @@
 
 	<div id="contacts">
 		<ul>
-			<li (click)="this.conversationService.startChat=false" *ngFor="let conversation of conversations" class="contact" [ngClass]="{'active': conversation.id == selectedConversation}"  class="contact" >
-				<div [id]="conversation.id" class="wrap" (click)="selectConversation(conversation)"  >
+			<li (click)="this.conversationService.startChat=false" *ngFor="let conversation of conversations" class="contact" [ngClass]="{'active': conversation.id == selectedConversation}"
+			 class="contact">
+				<div [id]="conversation.id" class="wrap" (click)="selectConversation(conversation)">
 					<span class="contact-status online"></span>
 					<img [src]=conversation.avatar alt="" />
 					<div class="meta">
@@ -48,8 +29,9 @@
 		</ul>
 	</div>
 </div>
+
+<!-- Show if no conversation is selected -->
 <div *ngIf='this.conversationService.startChat' class="chatPreview">
 	<img src='https://npm-assets.fiverrcdn.com/assets/@fiverr/inbox_perseus/magnifier.ca2ae8a.svg'>
 	<p>Select a conversation</p>
-
 </div>
