@@ -19,7 +19,13 @@ export class InboxService {
             { date: '', me: 'HI' },
             { date: '', me: 'Hi I\'m sender two' },
             { date: '', sender: 'Hello' },
-            { date: '', me: 'how are you' }
+            { date: '', sender: 'Hello' },
+            { date: '', sender: 'how are you' },
+            { date: '', me: 'Hi I\'m sender two' },
+            { date: '', sender: 'Hi I\'m sender two' },
+            { date: '', me: 'Hi I\'m sender two' },
+            { date: '', sender: 'Hi I\'m sender two' },
+            { date: '', me: 'Hi I\'m sender two' },
           ]
         },
         {
@@ -29,17 +35,24 @@ export class InboxService {
             { date: '', me: 'Hi I\'m sender three' },
             { date: '', sender: 'oye' },
             { date: '', me: 'han' },
-            { date: '', me: 'kesa he :P' }
+            { date: '', sender: 'han' },
+            { date: '', me: 'kesa he :P' },
+            { date: '', sender: 'kesa he :P' },
+            { date: '', me: 'kesa he :P' },
+            { date: '', sender: 'kesa he :P' }
           ]
         },
         {
           senderID: 3,
           name: 'Ahmed Waqas Nasir',
           conversations: [
-            { date: '', me: 'Hi I\'m sender three' },
+            { date: '', sender: 'Hi I\'m sender three' },
+            { date: '', me: 'Fine' },
+            { date: '', sender: 'Hi I\'m sender three' },
+            { date: '', me: 'Hi I\'m sender three,How are you' },
             { date: '', sender: 'oye' },
             { date: '', me: 'han' },
-            { date: '', me: 'kesa he :P' }
+            { date: '', sender: ':P' }
           ]
         },
         {
@@ -49,7 +62,15 @@ export class InboxService {
             { date: '', me: 'Hi I\'m sender three' },
             { date: '', sender: 'oye' },
             { date: '', me: 'han' },
-            { date: '', me: 'kesa he :P' }
+            { date: '', me: 'kesa he :P' },
+            { date: '', sender: 'Hi I\'m sender three' },
+            { date: '', me: 'Fine' },
+            { date: '', sender: 'Hi I\'m sender three' },
+            { date: '', me: 'Hi I\'m sender three,How are you' },
+            { date: '', sender: 'oye' },
+            { date: '', me: 'han' },
+            { date: '', sender: ':P' }
+
           ]
         },
         {
@@ -59,7 +80,13 @@ export class InboxService {
             { date: '', me: 'Hi I\'m sender three' },
             { date: '', sender: 'oye' },
             { date: '', me: 'han' },
-            { date: '', me: 'kesa he :P' }
+            { date: '', me: 'kesa he :P' },
+            { date: '', me: 'Hi I\'m sender three' },
+            { date: '', sender: 'oye' },
+            { date: '', me: 'han' },
+            { date: '', me: 'kesa he :P' },
+            { date: '', sender: 'Hi I\'m sender three' },
+            { date: '', me: 'Fine' },
           ]
         },
       ]
