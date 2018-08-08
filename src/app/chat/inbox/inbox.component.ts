@@ -2,6 +2,8 @@ import { ConversationsService } from './../services/conversations.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import {InboxService} from '../services/inbox.service'
+import { FormGroup, FormControl, FormGroupDirective, NgForm, Validators, FormBuilder } from '@angular/forms';
+
 Router
 @Component({
   selector: 'app-inbox',
@@ -10,8 +12,11 @@ Router
 })
 export class InboxComponent implements OnInit {
   conversationId: Number;
+  message: FormGroup;
 
-  constructor(public router: Router, private route: ActivatedRoute,private  conversationsService: ConversationsService ,private inbox :InboxService) {
+
+
+  constructor(public router: Router, private route: ActivatedRoute,private  conversationsService: ConversationsService ,private inbox :InboxService, ,private fb: FormBuilder,) {
  this.conversationsService.startChat = false;
     this.route.params.subscribe((params) => {
       this.conversationId = params.id;
@@ -22,6 +27,16 @@ export class InboxComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.message = this.fb.group({
+      'sender': ['', Validators.required],
+      'date': new Date(),
+    })
+  }
+
+  send(){
+    console.log("this.message.value",this.message.value)
+    this.message.reset();
+    
   }
 
 }

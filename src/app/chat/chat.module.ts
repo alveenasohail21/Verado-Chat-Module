@@ -6,7 +6,7 @@ import { ChatComponent } from './chat.component';
 import { RouterModule } from '@angular/router';
 import { ChatRoutes } from './chat.routing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 
 RouterModule
 @NgModule({
@@ -14,6 +14,7 @@ RouterModule
     CommonModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(ChatRoutes),
 
   ],
