@@ -16,13 +16,14 @@ export class InboxComponent implements OnInit {
   conversations: Array<Object>;
 
 
-  constructor(public router: Router, private route: ActivatedRoute, private conversationsService: ConversationsService, private inbox: InboxService, private fb: FormBuilder, ) {
+
+  constructor(public router: Router, private route: ActivatedRoute, private conversationsService: ConversationsService, private inbox: InboxService,  private fb: FormBuilder, ) {
     this.conversationsService.startChat = false;
     this.route.params.subscribe((params) => {
       this.conversationId = params.id;
 
       this.conversations = this.inbox.getUsers(6, this.conversationId);
-      
+
     });
 
   }
@@ -35,7 +36,7 @@ export class InboxComponent implements OnInit {
     })
   }
 
-  send(){
+  send() {
     this.conversations.push(this.message.value);
     this.message.reset();
 
